@@ -1,11 +1,12 @@
 <script setup>
-const session = auth.useSession()
+// https://better-auth.vercel.app/docs/integrations/nuxt#ssr-usage
+const session = await auth.useSession(useFetch)
 
-watch(() => session.value.data, (data) => {
+watch(() => session.data.value, (data) => {
   if (!data) {
     navigateTo('/')
   }
-})
+}, { immediate: true })
 </script>
 
 <template>
