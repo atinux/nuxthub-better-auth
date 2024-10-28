@@ -25,8 +25,8 @@ export function useAuth() {
 
   client.useSession.subscribe((newSession) => {
     if (newSession.data) {
-      session.value = newSession.data?.session || null
-      user.value = newSession.data?.user || null
+      session.value = newSession.data.session || null
+      user.value = newSession.data.user || null
     }
     if (newSession.error) {
       session.value = null

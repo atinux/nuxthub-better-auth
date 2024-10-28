@@ -12,8 +12,8 @@ importers:
         specifier: ^0.3.1
         version: 0.3.1(kysely@0.27.4)
       '@iconify-json/simple-icons':
-        specifier: ^1.2.9
-        version: 1.2.9
+        specifier: ^1.2.10
+        version: 1.2.10
       '@nuxt/eslint':
         specifier: ^0.6.0
         version: 0.6.0(eslint@9.13.0(jiti@2.3.3))(magicast@0.3.5)(rollup@4.24.0)(typescript@5.6.3)(vite@5.4.8(@types/node@22.7.5)(terser@5.34.1))(webpack-sources@3.2.3)
@@ -24,11 +24,11 @@ importers:
         specifier: ^1.4.4
         version: 1.4.4(magicast@0.3.5)(rollup@4.24.0)(vite@5.4.8(@types/node@22.7.5)(terser@5.34.1))(vue@3.5.12(typescript@5.6.3))(webpack-sources@3.2.3)
       '@nuxthub/core':
-        specifier: ^0.8.2
-        version: 0.8.2(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.24.0)(vite@5.4.8(@types/node@22.7.5)(terser@5.34.1))(webpack-sources@3.2.3)
+        specifier: ^0.8.3
+        version: 0.8.3(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.24.0)(vite@5.4.8(@types/node@22.7.5)(terser@5.34.1))(webpack-sources@3.2.3)
       better-auth:
-        specifier: 0.6.2-beta.8
-        version: 0.6.2-beta.8(@vue/devtools-api@6.6.4)(encoding@0.1.13)(react@18.3.1)(solid-js@1.9.2)(vue@3.5.12(typescript@5.6.3))
+        specifier: 0.6.2
+        version: 0.6.2(@vue/devtools-api@6.6.4)(encoding@0.1.13)(react@18.3.1)(solid-js@1.9.2)(vue@3.5.12(typescript@5.6.3))
       drizzle-orm:
         specifier: ^0.35.3
         version: 0.35.3(@cloudflare/workers-types@4.20241022.0)(@libsql/client-wasm@0.14.0)(@prisma/client@5.21.0(prisma@5.21.0))(@types/better-sqlite3@7.6.11)(better-sqlite3@11.3.0)(kysely@0.27.4)(prisma@5.21.0)(react@18.3.1)
@@ -46,8 +46,8 @@ importers:
         version: 4.4.5(vue@3.5.12(typescript@5.6.3))
     devDependencies:
       '@better-auth/cli':
-        specifier: 0.6.1-beta.7
-        version: 0.6.1-beta.7(@babel/core@7.25.8)(@cloudflare/workers-types@4.20241022.0)(@vue/devtools-api@6.6.4)(encoding@0.1.13)(kysely@0.27.4)(magicast@0.3.5)(react@18.3.1)(solid-js@1.9.2)(vue@3.5.12(typescript@5.6.3))
+        specifier: 0.6.2
+        version: 0.6.2(@babel/core@7.25.8)(@cloudflare/workers-types@4.20241022.0)(@vue/devtools-api@6.6.4)(encoding@0.1.13)(kysely@0.27.4)(magicast@0.3.5)(react@18.3.1)(solid-js@1.9.2)(vue@3.5.12(typescript@5.6.3))
       '@nuxt/eslint-config':
         specifier: ^0.6.0
         version: 0.6.0(eslint@9.13.0(jiti@2.3.3))(typescript@5.6.3)
@@ -279,8 +279,8 @@ packages:
     resolution: {integrity: sha512-JWtuCu8VQsMladxVz/P4HzHUGCAwpuqacmowgXFs5XjxIgKuNjnLokQzuVjlTvIzODaDmpjT3oxcC48vyk9EWg==}
     engines: {node: '>=6.9.0'}
 
-  '@better-auth/cli@0.6.1-beta.7':
-    resolution: {integrity: sha512-EWZr9LRZCDSXcFtIbwfp6Hb8Ty2hsJ7xcpqvxOGdnYxYhgxDg+fMZROT/UEvSJRiswyNiiTAqGKTMVqhNc4IKA==}
+  '@better-auth/cli@0.6.2':
+    resolution: {integrity: sha512-QytwZGa1Bp6hJx6qbT7AivsBonBtlzHlR6zLAoPqw3bXxlyQnoDYKZMesLWZv/FBONczlatWCS6Ubi0k5RdKcg==}
     hasBin: true
 
   '@better-fetch/fetch@1.1.12':
@@ -1022,8 +1022,8 @@ packages:
   '@iconify-json/heroicons@1.2.1':
     resolution: {integrity: sha512-TkKfS5U27kE5MXmSGLzPoz95BP5VA9xEJXwJFwmPMVLX+xyWq0OkoiWTUXB0uAoQODpb8BaRpzSydItrq9fIRA==}
 
-  '@iconify-json/simple-icons@1.2.9':
-    resolution: {integrity: sha512-0hxlf0uCKAUT+rLjh4iH16XMfRqptOpZURBVk2PKAFDGbe1+8hPPstKFkBAPvtfkCK0bO+E9QE/Q5ozuCYz28A==}
+  '@iconify-json/simple-icons@1.2.10':
+    resolution: {integrity: sha512-9OK1dsSjXlH36lhu5n+BlSoXuqFjHUErGLtNdzHpq0vHq4YFBuGYWtZ+vZTHLreRQ8ijPRv/6EsgkV+nf6AReQ==}
 
   '@iconify-json/vscode-icons@1.2.2':
     resolution: {integrity: sha512-bTpT0HJDRqGkxQv8oiETNHLEnBZpnA1QaRD35CQyO7M7qgWVLx2xwn/lK6e4waojmlPC3ckMBx3WFIUUn0/Jdg==}
@@ -1427,8 +1427,8 @@ packages:
     peerDependencies:
       vue: ^3.3.4
 
-  '@nuxthub/core@0.8.2':
-    resolution: {integrity: sha512-C9XKgqQq0AXaH2AbCeFVFAEU14aTl0nP0g7mdtUN0c/JiQhdX1MIn70ANDUgFPVbNN5S6s8f38/OfJlXiDdpFA==}
+  '@nuxthub/core@0.8.3':
+    resolution: {integrity: sha512-3oae5Za/SYSuLOThj48viDVjlFo1XxEaOL/W77Z83zg5eb54Shnh18QIipRz4BURUpAXpYRbzlwxOpgW2Zs7JQ==}
 
   '@nuxtjs/color-mode@3.5.1':
     resolution: {integrity: sha512-GRHF3WUwX6fXIiRVlngNq1nVDwrVuP6dWX1DRmox3QolzX0eH1oJEcFr/lAm1nkT71JVGb8mszho9w+yHJbePw==}
@@ -2203,14 +2203,8 @@ packages:
   base64-js@1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
 
-  better-auth@0.6.1-beta.7:
-    resolution: {integrity: sha512-tIkLiQvbIgR1Ai2g8OO0ZooOGFHZ7aaVLA37GEYdF/Jasws1Aq6PB9pMVPd6utSUobsQje3vCuKdwYpFN3eytA==}
-
-  better-auth@0.6.2-beta.8:
-    resolution: {integrity: sha512-1fi1s7e7st+6Us64t5UasoEQmZ9ORYcrXdfm13rEb06egrUor7trLlREGzIyPIApfYGbatuuv+mAiambAkQrZQ==}
-
-  better-call@0.2.12:
-    resolution: {integrity: sha512-xuR4hJEtirZYI4UXOEVKaipghWcxxo4/tW3FUTIXIIG1X9nb2V/VH4HZP7fuD7ONHoNntwtPIurDNeK/SswxgA==}
+  better-auth@0.6.2:
+    resolution: {integrity: sha512-7lh0ph5eXnoyMDs9hbL32hrY+e/y7Abk0IHtCS5h0fbObZNA1Uv2uW4G89RuHQG30LI7VeB4klYGn6Qcs74DrA==}
 
   better-call@0.2.13:
     resolution: {integrity: sha512-Y1rOwUtTYeH4usW7XNqonoo+Dtcb2sXL6m6zcLsgTYSD2ANqyELxkeA8BkCTWonN1y+Pt9CMbcn5vILaPohdUg==}
@@ -5806,7 +5800,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.25.7
       to-fast-properties: 2.0.0
 
-  '@better-auth/cli@0.6.1-beta.7(@babel/core@7.25.8)(@cloudflare/workers-types@4.20241022.0)(@vue/devtools-api@6.6.4)(encoding@0.1.13)(kysely@0.27.4)(magicast@0.3.5)(react@18.3.1)(solid-js@1.9.2)(vue@3.5.12(typescript@5.6.3))':
+  '@better-auth/cli@0.6.2(@babel/core@7.25.8)(@cloudflare/workers-types@4.20241022.0)(@vue/devtools-api@6.6.4)(encoding@0.1.13)(kysely@0.27.4)(magicast@0.3.5)(react@18.3.1)(solid-js@1.9.2)(vue@3.5.12(typescript@5.6.3))':
     dependencies:
       '@babel/preset-react': 7.25.7(@babel/core@7.25.8)
       '@babel/preset-typescript': 7.25.7(@babel/core@7.25.8)
@@ -5814,7 +5808,7 @@ snapshots:
       '@prisma/client': 5.21.0(prisma@5.21.0)
       '@types/better-sqlite3': 7.6.11
       '@types/prompts': 2.4.9
-      better-auth: 0.6.1-beta.7(@vue/devtools-api@6.6.4)(encoding@0.1.13)(react@18.3.1)(solid-js@1.9.2)(vue@3.5.12(typescript@5.6.3))
+      better-auth: 0.6.2(@vue/devtools-api@6.6.4)(encoding@0.1.13)(react@18.3.1)(solid-js@1.9.2)(vue@3.5.12(typescript@5.6.3))
       better-sqlite3: 11.3.0
       c12: 2.0.1(magicast@0.3.5)
       chalk: 5.3.0
@@ -6322,7 +6316,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/simple-icons@1.2.9':
+  '@iconify-json/simple-icons@1.2.10':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -7010,7 +7004,7 @@ snapshots:
       - vue-tsc
       - webpack-sources
 
-  '@nuxthub/core@0.8.2(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.24.0)(vite@5.4.8(@types/node@22.7.5)(terser@5.34.1))(webpack-sources@3.2.3)':
+  '@nuxthub/core@0.8.3(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.24.0)(vite@5.4.8(@types/node@22.7.5)(terser@5.34.1))(webpack-sources@3.2.3)':
     dependencies:
       '@cloudflare/workers-types': 4.20241022.0
       '@nuxt/devtools-kit': 1.6.0(magicast@0.3.5)(rollup@4.24.0)(vite@5.4.8(@types/node@22.7.5)(terser@5.34.1))(webpack-sources@3.2.3)
@@ -7920,37 +7914,7 @@ snapshots:
 
   base64-js@1.5.1: {}
 
-  better-auth@0.6.1-beta.7(@vue/devtools-api@6.6.4)(encoding@0.1.13)(react@18.3.1)(solid-js@1.9.2)(vue@3.5.12(typescript@5.6.3)):
-    dependencies:
-      '@better-fetch/fetch': 1.1.12
-      '@nanostores/query': 0.3.4(nanostores@0.11.3)
-      '@nanostores/react': 0.8.0(nanostores@0.11.3)(react@18.3.1)
-      '@nanostores/solid': 0.4.2(nanostores@0.11.3)(solid-js@1.9.2)
-      '@nanostores/vue': 0.10.0(@vue/devtools-api@6.6.4)(nanostores@0.11.3)(vue@3.5.12(typescript@5.6.3))
-      '@noble/ciphers': 0.6.0
-      '@noble/hashes': 1.5.0
-      '@simplewebauthn/browser': 10.0.0
-      '@simplewebauthn/server': 10.0.1(encoding@0.1.13)
-      better-call: 0.2.12
-      consola: 3.2.3
-      defu: 6.1.4
-      jose: 5.9.4
-      kysely: 0.27.4
-      nanoid: 5.0.7
-      nanostores: 0.11.3
-      oslo: 1.2.1
-      std-env: 3.7.0
-      uncrypto: 0.1.3
-      zod: 3.23.8
-    transitivePeerDependencies:
-      - '@nanostores/logger'
-      - '@vue/devtools-api'
-      - encoding
-      - react
-      - solid-js
-      - vue
-
-  better-auth@0.6.2-beta.8(@vue/devtools-api@6.6.4)(encoding@0.1.13)(react@18.3.1)(solid-js@1.9.2)(vue@3.5.12(typescript@5.6.3)):
+  better-auth@0.6.2(@vue/devtools-api@6.6.4)(encoding@0.1.13)(react@18.3.1)(solid-js@1.9.2)(vue@3.5.12(typescript@5.6.3)):
     dependencies:
       '@better-fetch/fetch': 1.1.12
       '@nanostores/query': 0.3.4(nanostores@0.11.3)
@@ -7979,12 +7943,6 @@ snapshots:
       - react
       - solid-js
       - vue
-
-  better-call@0.2.12:
-    dependencies:
-      '@better-fetch/fetch': 1.1.12
-      rou3: 0.5.1
-      uncrypto: 0.1.3
 
   better-call@0.2.13:
     dependencies:
