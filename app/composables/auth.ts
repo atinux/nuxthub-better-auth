@@ -11,14 +11,9 @@ interface RuntimeAuthConfig {
 export function useAuth() {
   const url = useRequestURL()
   const headers = import.meta.server ? useRequestHeaders() : undefined
-  console.log('fetchOptions', {
-    credentials: import.meta.client ? 'include' : undefined,
-  })
+
   const client = createAuthClient({
     baseURL: url.origin,
-    fetchOptions: {
-      credentials: import.meta.client ? 'include' : undefined,
-    },
   })
   const session = useState<InferSessionFromClient<ClientOptions> | null>('auth:session', () => null)
   const user = useState<InferUserFromClient<ClientOptions> | null>('auth:user', () => null)
@@ -45,7 +40,6 @@ export function useAuth() {
       const { data } = await client.getSession({
         fetchOptions: {
           headers,
-          credentials: import.meta.client ? 'include' : undefined,
         },
       })
       session.value = data?.session || null
