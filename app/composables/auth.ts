@@ -15,11 +15,23 @@ export function useAuth() {
   const client = createAuthClient({
     baseURL: url.origin,
   })
-  const session = useState<InferSessionFromClient<ClientOptions> | null>('auth:session', () => null)
-  const user = useState<InferUserFromClient<ClientOptions> | null>('auth:user', () => null)
+
   const options = defu(useRuntimeConfig().public.auth as Partial<RuntimeAuthConfig>, {
     redirectUserTo: '/',
     redirectGuestTo: '/',
+  })
+  const session = useState<InferSessionFromClient<ClientOptions> | null>('auth:session', () => null)
+  const user = useState<InferUserFromClient<ClientOptions> | null>('auth:user', () => null)
+
+  client.useSession.subscribe((newSession) => {
+    if (newSession.data) {
+      session.value = newSession.data?.session || null
+      user.value = newSession.data?.user || null
+    }
+    if (newSession.error) {
+      session.value = null
+      user.value = null
+    }
   })
 
   return {
@@ -31,8 +43,6 @@ export function useAuth() {
     options,
     async signOut({ redirectTo }: { redirectTo?: RouteLocationRaw } = {}) {
       const res = await client.signOut()
-      session.value = null
-      user.value = null
       await navigateTo(redirectTo || options.redirectGuestTo)
       return res
     },
