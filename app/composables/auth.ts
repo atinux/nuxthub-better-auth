@@ -27,14 +27,20 @@ export function useAuth() {
   const session = useState<InferSessionFromClient<ClientOptions> | null>('auth:session', () => null)
   const user = useState<InferUserFromClient<ClientOptions> | null>('auth:user', () => null)
 
-  client.useSession.subscribe((newSession) => {
-    if (newSession.data) {
-      session.value = newSession.data.session || null
-      user.value = newSession.data.user || null
-    }
-    if (newSession.error) {
-      session.value = null
-      user.value = null
+  const fetchSession = async () => {
+    const { data } = await client.getSession({
+      fetchOptions: {
+        headers,
+      },
+    })
+    session.value = data?.session || null
+    user.value = data?.user || null
+    return data
+  }
+
+  client.$store.listen('$sessionSignal', async (signal) => {
+    if (!import.meta.server && signal) {
+      await fetchSession()
     }
   })
 
@@ -50,16 +56,7 @@ export function useAuth() {
       await navigateTo(redirectTo || options.redirectGuestTo)
       return res
     },
-    async fetchSession() {
-      const { data } = await client.getSession({
-        fetchOptions: {
-          headers,
-        },
-      })
-      session.value = data?.session || null
-      user.value = data?.user || null
-      return data
-    },
+    fetchSession,
     client,
   }
 }
