@@ -26,14 +26,14 @@ export function useAuth() {
   })
   const session = useState<InferSessionFromClient<ClientOptions> | null>('auth:session', () => null)
   const user = useState<InferUserFromClient<ClientOptions> | null>('auth:user', () => null)
-  const loading = import.meta.server ? ref(false) : useState('auth:loading', () => false)
+  const sessionFetching = import.meta.server ? ref(false) : useState('auth:sessionFetching', () => false)
 
   const fetchSession = async () => {
-    if (loading.value) {
+    if (sessionFetching.value) {
       console.log('already fetching session')
       return
     }
-    loading.value = true
+    sessionFetching.value = true
     const { data } = await client.getSession({
       fetchOptions: {
         headers,
@@ -41,7 +41,7 @@ export function useAuth() {
     })
     session.value = data?.session || null
     user.value = data?.user || null
-    loading.value = false
+    sessionFetching.value = false
     return data
   }
 
