@@ -1,6 +1,10 @@
 import { defu } from 'defu'
 import { createAuthClient } from 'better-auth/client'
-import type { InferSessionFromClient, InferUserFromClient, ClientOptions } from 'better-auth/client'
+import type {
+  InferSessionFromClient,
+  InferUserFromClient,
+  ClientOptions,
+} from 'better-auth/client'
 import type { RouteLocationRaw } from 'vue-router'
 
 interface RuntimeAuthConfig {
