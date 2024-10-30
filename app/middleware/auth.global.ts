@@ -1,5 +1,4 @@
 import { defu } from 'defu'
-import type { RouteLocationRaw } from 'vue-router'
 
 type MiddlewareOptions = false | {
   /**
@@ -9,11 +8,11 @@ type MiddlewareOptions = false | {
   /**
    * Redirect authenticated user to this route
    */
-  redirectUserTo?: RouteLocationRaw
+  redirectUserTo?: string
   /**
    * Redirect guest to this route
    */
-  redirectGuestTo?: RouteLocationRaw
+  redirectGuestTo?: string
 }
 
 declare module '#app' {
@@ -33,7 +32,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
   if (to.meta?.auth === false) {
     return
   }
-  const { loggedIn, options } = useAuth()
+  const { loggedIn, options, fetchSession } = useAuth()
   const { only, redirectUserTo, redirectGuestTo } = defu(to.meta?.auth, options)
 
   // If guest mode, redirect if authenticated
@@ -45,6 +44,10 @@ export default defineNuxtRouteMiddleware(async (to) => {
     return navigateTo(redirectUserTo)
   }
 
+  // If client-side, fetch session between each navigation
+  if (import.meta.client) {
+    await fetchSession()
+  }
   // If not authenticated, redirect to home
   if (!loggedIn.value) {
     // Avoid infinite redirect

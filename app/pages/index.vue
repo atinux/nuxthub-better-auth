@@ -36,6 +36,7 @@ async function signIn() {
     })
   }
   else {
+    await navigateTo('/user')
     toast.add({
       title: `You have been signed in!`,
     })
@@ -61,6 +62,7 @@ async function signUp() {
     toast.add({
       title: `You have been signed up!`,
     })
+    await navigateTo('/user')
   }
   loading.value = false
 }

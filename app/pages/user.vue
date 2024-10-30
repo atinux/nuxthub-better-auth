@@ -4,13 +4,17 @@ const auth = useAuth()
 </script>
 
 <template>
-  <div>
-    <h3>User</h3>
+  <UPageBody>
+    <h3 class="text-xl font-bold">
+      User
+    </h3>
     <pre>{{ auth.user }}</pre>
-    <h3>Session</h3>
+    <h3 class="text-xl font-bold mt-2">
+      Session
+    </h3>
     <pre>{{ auth.session }}</pre>
-    <UButton @click="auth.signOut({ redirectTo: '/' })">
+    <UButton class="mt-2" color="black" @click="auth.signOut({ redirectTo: '/' })">
       Sign Out
     </UButton>
-  </div>
+  </UPageBody>
 </template>

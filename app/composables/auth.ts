@@ -26,8 +26,14 @@ export function useAuth() {
   })
   const session = useState<InferSessionFromClient<ClientOptions> | null>('auth:session', () => null)
   const user = useState<InferUserFromClient<ClientOptions> | null>('auth:user', () => null)
+  const loading = import.meta.server ? ref(false) : useState('auth:loading', () => false)
 
   const fetchSession = async () => {
+    if (loading.value) {
+      console.log('already fetching session')
+      return
+    }
+    loading.value = true
     const { data } = await client.getSession({
       fetchOptions: {
         headers,
@@ -35,14 +41,16 @@ export function useAuth() {
     })
     session.value = data?.session || null
     user.value = data?.user || null
+    loading.value = false
     return data
   }
 
-  client.$store.listen('$sessionSignal', async (signal) => {
-    if (!import.meta.server && signal) {
+  if (import.meta.client) {
+    client.$store.listen('$sessionSignal', async (signal) => {
+      if (!signal) return
       await fetchSession()
-    }
-  })
+    })
+  }
 
   return {
     session,
@@ -50,12 +58,16 @@ export function useAuth() {
     loggedIn: computed(() => !!session.value),
     signIn: client.signIn,
     signUp: client.signUp,
-    options,
     async signOut({ redirectTo }: { redirectTo?: RouteLocationRaw } = {}) {
       const res = await client.signOut()
-      await navigateTo(redirectTo || options.redirectGuestTo)
+      session.value = null
+      user.value = null
+      if (redirectTo) {
+        await navigateTo(redirectTo)
+      }
       return res
     },
+    options,
     fetchSession,
     client,
   }
