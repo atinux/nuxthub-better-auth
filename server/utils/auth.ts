@@ -1,14 +1,19 @@
-import { betterAuth } from 'better-auth'
 import { D1Dialect } from '@atinux/kysely-d1'
-import { anonymous, admin } from 'better-auth/plugins'
+import type { D1Database } from '@cloudflare/workers-types'
+import { betterAuth } from 'better-auth'
+import { admin, anonymous } from 'better-auth/plugins'
+import { Kysely } from 'kysely'
 
 let _auth: ReturnType<typeof betterAuth>
 export function serverAuth() {
   if (!_auth) {
+    const db = hubDatabase() as unknown as D1Database
     _auth = betterAuth({
       database: {
-        dialect: new D1Dialect({
-          database: hubDatabase(),
+        db: new Kysely({
+          dialect: new D1Dialect({
+            database: db,
+          }),
         }),
         type: 'sqlite',
       },
@@ -41,12 +46,27 @@ export function serverAuth() {
 }
 
 function getBaseURL() {
-  let baseURL = process.env.BETTER_AUTH_URL
+  const envBase = process.env.BETTER_AUTH_URL
+  const runtimeAppUrl = (() => {
+    try {
+      const rc = useRuntimeConfig?.()
+      return rc?.appUrl as string | undefined
+    }
+    catch {
+      return undefined
+    }
+  })()
+
+  let baseURL = envBase || runtimeAppUrl
+
   if (!baseURL) {
     try {
       baseURL = getRequestURL(useEvent()).origin
     }
-    catch (e) {}
+    catch {
+      // ignore
+    }
   }
-  return baseURL
+
+  return typeof baseURL === 'string' ? baseURL.replace(/\/+$/, '') : baseURL
 }
