@@ -29,8 +29,6 @@ The `BETTER_AUTH_SECRET` should be a random string of your choosing used by Bett
 
 The `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` should be your GitHub OAuth application credentials (see [create an OAuth application](https://github.com/settings/applications/new)).
 
-The `NUXT_UI_PRO_LICENSE` should be your Nuxt UI Pro license key (only required for production), if you don't have one, you can purchase one [here](https://ui.nuxt.com/pro).
-
 ## Development Server
 
 Start the development server on `http://localhost:3000`:
