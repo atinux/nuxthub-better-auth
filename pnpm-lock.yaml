@@ -27,8 +27,8 @@ importers:
         specifier: 0.10.8
         version: 0.10.8(@emnapi/core@1.10.0)(@emnapi/runtime@1.11.3)(db0@0.3.4(@libsql/client@0.18.0)(better-sqlite3@11.5.0)(drizzle-orm@0.45.2(@libsql/client@0.18.0)(@prisma/client@5.21.1(prisma@5.21.1))(@types/better-sqlite3@7.6.11)(better-sqlite3@11.5.0)(kysely@0.29.5)(prisma@5.21.1)))(ioredis@5.11.1(supports-color@10.2.2))(magic-string@1.2.3)(magicast@0.5.4)(rolldown@1.2.6)(typescript@5.9.3)(unplugin@3.3.0(esbuild@0.28.2)(rolldown@1.2.6)(rollup@4.63.1)(vite@8.2.2(@types/node@26.4.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.36.0)(tsx@4.23.13)(yaml@2.9.0)))(vue-tsc@3.3.11(typescript@5.9.3))
       '@nuxtjs/better-auth':
-        specifier: https://pkg.pr.new/@nuxtjs/better-auth@5a4b5a8
-        version: https://pkg.pr.new/@nuxtjs/better-auth@5a4b5a8(ba33279605a6b7c0373f84170d0728c8)
+        specifier: 0.3.1
+        version: 0.3.1(ba33279605a6b7c0373f84170d0728c8)
       better-auth:
         specifier: 1.7.3
         version: 1.7.3(@prisma/client@5.21.1(prisma@5.21.1))(better-sqlite3@11.5.0)(drizzle-kit@0.31.10)(drizzle-orm@0.45.2(@libsql/client@0.18.0)(@prisma/client@5.21.1(prisma@5.21.1))(@types/better-sqlite3@7.6.11)(better-sqlite3@11.5.0)(kysely@0.29.5)(prisma@5.21.1))(prisma@5.21.1)(react@18.3.1)(solid-js@1.9.3)(vue@3.5.42(typescript@5.9.3))
@@ -1858,9 +1858,8 @@ packages:
       '@vercel/blob':
         optional: true
 
-  '@nuxtjs/better-auth@https://pkg.pr.new/@nuxtjs/better-auth@5a4b5a8':
-    resolution: {integrity: sha512-Rmuywz21FDjJAz8ar1ao++rfp3HNOG6NJe+MGAE1woBoXwMnJtczj4XdTAngAiMRebxImnF+FT3n6HCnoeEDoA==, tarball: https://pkg.pr.new/@nuxtjs/better-auth@5a4b5a8}
-    version: 0.3.0
+  '@nuxtjs/better-auth@0.3.1':
+    resolution: {integrity: sha512-IJvXsDlwlrfwrLJ8BiV0G8ZAUhhm9X8/sS0XtwtRVEfIqITIVV3aa8oSec4CSgN8v2uG/puKUs0wfY6c6RntLQ==}
     engines: {node: ^22.19.0 || ^24.11.0 || >=26.0.0}
     peerDependencies:
       '@nuxthub/core': '>=0.10.5'
@@ -8801,7 +8800,7 @@ snapshots:
       - uploadthing
       - vue-tsc
 
-  '@nuxtjs/better-auth@https://pkg.pr.new/@nuxtjs/better-auth@5a4b5a8(ba33279605a6b7c0373f84170d0728c8)':
+  '@nuxtjs/better-auth@0.3.1(ba33279605a6b7c0373f84170d0728c8)':
     dependencies:
       '@nuxt/devtools-kit': 3.4.2(magic-string@1.2.3)(magicast@0.5.4)(rolldown@1.2.6)(unplugin@3.3.0(esbuild@0.28.2)(rolldown@1.2.6)(rollup@4.63.1)(vite@8.2.2(@types/node@26.4.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.36.0)(tsx@4.23.13)(yaml@2.9.0)))(vite@8.2.2(@types/node@26.4.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.36.0)(tsx@4.23.13)(yaml@2.9.0))
       '@nuxt/kit': 4.5.2(magic-string@1.2.3)(magicast@0.5.4)(rolldown@1.2.6)(unplugin@3.3.0(esbuild@0.28.2)(rolldown@1.2.6)(rollup@4.63.1)(vite@8.2.2(@types/node@26.4.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.36.0)(tsx@4.23.13)(yaml@2.9.0)))
