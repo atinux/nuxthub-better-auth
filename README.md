@@ -55,8 +55,9 @@ removes the obsolete `account.issuer` column and index while preserving accounts
 and sessions. Older builds require that column, so a rollback also needs the old
 schema restored. See the [Better Auth upgrade guide](https://www.better-auth.com/docs/guides/1-7-upgrade-guide#account-identity-keeps-the-provider-key).
 
-The pnpm override keeps the module's `auth` schema generator at the same version
-as `better-auth`. Update both together to avoid generating an incompatible schema.
+The module is pinned to the preview build from
+[nuxt-modules/better-auth#460](https://github.com/nuxt-modules/better-auth/pull/460),
+which aligns its schema generator with Better Auth 1.7.3.
 
 ### Cloudflare Workers with D1
 
