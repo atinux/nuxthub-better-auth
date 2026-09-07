@@ -137,8 +137,9 @@ No separate seed command is needed.
 
 Use only a disposable demo database. Both `user@nuxthub.demo` and
 `admin@nuxthub.demo` use the public password `nuxthub-demo`. Restarts do not
-overwrite existing accounts. Turning the flag off hides the buttons and stops
-seeding, but does not remove accounts or disable their passwords.
+overwrite existing accounts; conflicting IDs or emails are skipped. Turning the
+flag off hides the buttons and stops seeding, but does not remove accounts or
+disable their passwords.
 Use a fresh database for a real application.
 
 ## Optional GitHub OAuth
