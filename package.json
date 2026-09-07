@@ -12,6 +12,7 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "typecheck": "nuxt typecheck",
+    "test": "nuxt prepare && node --test tests/auth-schema.test.mjs",
     "db:generate": "nuxt db generate",
     "db:migrate": "nuxt db migrate"
   },

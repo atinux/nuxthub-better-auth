@@ -7,6 +7,9 @@ allowBuilds:
   unrs-resolver: true
   vue-demi: true
   workerd: true
+overrides:
+  # Keep the module's schema generator aligned with the auth runtime.
+  '@nuxtjs/better-auth>auth': 1.7.3
 minimumReleaseAgeExclude:
   - '@libsql/client@0.18.0'
   - '@libsql/core@0.18.0'

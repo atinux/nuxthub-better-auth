@@ -49,6 +49,15 @@ Use separate database environments for development, previews, and production.
 Apply schema migrations before each deployment. Neither deployment path requires
 the optional demo accounts.
 
+For databases created by this PR with Better Auth 1.7.0–1.7.2, back up the database
+and apply migration `0001_powerful_shiver_man` when deploying this version. It
+removes the obsolete `account.issuer` column and index while preserving accounts
+and sessions. Older builds require that column, so a rollback also needs the old
+schema restored. See the [Better Auth upgrade guide](https://www.better-auth.com/docs/guides/1-7-upgrade-guide#account-identity-keeps-the-provider-key).
+
+The pnpm override keeps the module's `auth` schema generator at the same version
+as `better-auth`. Update both together to avoid generating an incompatible schema.
+
 ### Cloudflare Workers with D1
 
 Authenticate Wrangler and create a D1 database:
@@ -172,7 +181,9 @@ references Nuxt's app, server, shared, and tooling projects.
 ```bash
 pnpm lint
 pnpm typecheck
+pnpm test
 pnpm build:node
 ```
 
-CI runs these checks without cloud credentials.
+CI runs these checks without cloud credentials. The auth test migrates an
+in-memory SQLite database, then verifies existing logins and new signups.

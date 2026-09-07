@@ -25,7 +25,6 @@ export default defineNitroPlugin((nitroApp) => {
       db.insert(user).values(users).onConflictDoNothing(),
       db.insert(account).values(users.map(demo => ({
         id: `${demo.id}-credential`,
-        issuer: 'local:credential',
         accountId: demo.id,
         providerId: 'credential',
         userId: demo.id,
