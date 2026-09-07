@@ -35,7 +35,7 @@ Use Node 22.19+, 24.11+, or 26+, with [Corepack](https://github.com/nodejs/corep
 Open [localhost:3000](http://localhost:3000). Create an account with the sign-up
 form or continue anonymously. The database is stored in `.data/db/sqlite.db`.
 
-By default, new databases contain **no demo users or public-password accounts**.
+New databases contain **no demo users or public-password accounts**.
 The initial migration creates a new schema; existing installations need a
 separate data-migration plan.
 `/user` and `/secret` require a session. `/admin` additionally requires the
@@ -127,20 +127,18 @@ Set `NUXT_PUBLIC_SITE_URL` to your HTTPS origin and persist `.data/db/sqlite.db`
 across releases. Run behind a trusted reverse proxy that forwards a reliable
 client IP for rate limiting.
 
-## Optional demo accounts
+## Optional demo login buttons
 
-Set `NUXT_PUBLIC_DEMO_ACCOUNTS_ENABLED=true` in `.env` locally or in your
-deployment's runtime environment. This shows the User and Admin quick-login
-buttons and enables the Nitro seed plugin. After schema migrations, the first
-request automatically creates the demo accounts on SQLite, D1, or Turso.
-No separate seed command is needed.
+For a disposable hosted demo, create `user@nuxthub.demo` and `admin@nuxthub.demo`
+through the sign-up form, both with the public password `nuxthub-demo`.
+Set the admin account's `role` to `admin` in the database.
 
-Use only a disposable demo database. Both `user@nuxthub.demo` and
-`admin@nuxthub.demo` use the public password `nuxthub-demo`. Restarts do not
-overwrite existing accounts; conflicting IDs or emails are skipped. Turning the
-flag off hides the buttons and stops seeding, but does not remove accounts or
-disable their passwords.
-Use a fresh database for a real application.
+Then set `NUXT_PUBLIC_DEMO_ACCOUNTS_ENABLED=true` in the runtime environment to
+show the User and Admin quick-login buttons. This flag only controls the buttons;
+the application never creates demo accounts automatically.
+
+Turning the flag off hides the buttons but does not remove accounts or disable
+their passwords. Use a fresh database for a real application.
 
 ## Optional GitHub OAuth
 
