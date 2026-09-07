@@ -1,29 +1,62 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+const cloudflareDatabaseId = process.env.NUXT_HUB_CLOUDFLARE_DATABASE_ID
+const isVercelBuild = Boolean(process.env.VERCEL || process.env.NITRO_PRESET?.startsWith('vercel'))
+const isNodeBuild = process.env.NITRO_PRESET === 'node-server'
+
 export default defineNuxtConfig({
-  // https://nuxt.com/modules
-  extends: '@nuxt/ui-pro',
-  modules: ['@nuxthub/core', '@nuxt/ui', '@nuxt/eslint'],
+  modules: ['@nuxthub/core', '@nuxtjs/better-auth', '@nuxt/ui', '@nuxt/eslint'],
   devtools: { enabled: true },
+  css: ['~/assets/css/main.css'],
 
   runtimeConfig: {
+    githubClientId: '',
+    githubClientSecret: '',
     public: {
-      auth: {
-        redirectUserTo: '/user',
-        redirectGuestTo: '/',
+      demoAccountsEnabled: false,
+      githubAuthEnabled: false,
+    },
+  },
+
+  routeRules: {
+    '/': { auth: { only: 'guest', redirectTo: '/user' } },
+    '/user': { auth: 'user' },
+    '/secret': { auth: 'user' },
+    '/admin': { auth: { only: 'user', user: { role: 'admin' } } },
+  },
+
+  compatibilityDate: '2026-09-03',
+
+  nitro: {
+    cloudflare: {
+      wrangler: {
+        name: 'atinux-nuxthub-better-auth',
+        workers_dev: true,
+        preview_urls: false,
       },
     },
   },
 
-  future: { compatibilityVersion: 4 },
-  compatibilityDate: '2024-07-30',
-
-  // https://hub.nuxt.com/docs/getting-started/installation#options
   hub: {
-    database: true,
-    kv: true,
+    db: {
+      dialect: 'sqlite',
+      applyMigrationsDuringBuild: !isVercelBuild,
+      connection: isVercelBuild
+        ? { url: '', authToken: '' }
+        : isNodeBuild
+          ? { url: 'file:.data/db/sqlite.db', authToken: '' }
+          : cloudflareDatabaseId
+            ? { databaseId: cloudflareDatabaseId }
+            : undefined,
+    },
   },
 
-  // https://eslint.nuxt.com
+  auth: {
+    redirects: {
+      login: '/',
+      authenticated: '/user',
+      logout: '/',
+    },
+  },
+
   eslint: {
     config: {
       stylistic: {

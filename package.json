@@ -1,37 +1,45 @@
 {
-  "name": "nuxt-app",
+  "name": "nuxthub-better-auth",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "nuxt build",
+    "build:node": "NITRO_PRESET=node-server nuxt build",
+    "build:cloudflare": "NITRO_PRESET=cloudflare_module nuxt build",
+    "build:vercel": "NITRO_PRESET=vercel nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "npx nuxthub preview",
-    "deploy": "npx nuxthub deploy",
+    "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck",
+    "test": "nuxt prepare && node --test tests/auth-schema.test.mjs",
+    "db:generate": "nuxt db generate",
+    "db:migrate": "nuxt db migrate"
   },
   "dependencies": {
-    "@atinux/kysely-d1": "^0.3.1",
-    "@iconify-json/heroicons": "^1.2.1",
-    "@iconify-json/simple-icons": "^1.2.11",
-    "@nuxt/eslint": "^0.6.1",
-    "@nuxt/ui": "^2.19.2",
-    "@nuxt/ui-pro": "^1.5.0",
-    "@nuxthub/core": "^0.8.6",
-    "@vueuse/core": "^11.2.0",
-    "better-auth": "0.7.6-beta.2",
-    "nuxt": "^3.14.159",
-    "ofetch": "^1.4.1",
-    "vue": "^3.5.12",
-    "vue-router": "^4.4.5"
+    "@iconify-json/lucide": "1.2.129",
+    "@iconify-json/simple-icons": "1.2.94",
+    "@libsql/client": "0.18.0",
+    "@nuxt/eslint": "1.17.0",
+    "@nuxt/ui": "4.11.0",
+    "@nuxthub/core": "0.10.8",
+    "@nuxtjs/better-auth": "0.3.1",
+    "better-auth": "1.7.3",
+    "drizzle-orm": "0.45.2",
+    "nuxt": "4.5.2",
+    "tailwindcss": "4.3.3",
+    "vue": "3.5.42",
+    "vue-router": "5.3.1"
   },
   "devDependencies": {
-    "@nuxt/eslint-config": "^0.6.1",
-    "eslint": "^9.14.0",
-    "typescript": "^5.6.3",
-    "vue-tsc": "^2.1.10",
-    "wrangler": "^3.85.0"
+    "drizzle-kit": "0.31.10",
+    "eslint": "10.10.0",
+    "typescript": "5.9.3",
+    "vue-tsc": "3.3.11",
+    "wrangler": "4.129.0"
   },
-  "packageManager": "pnpm@9.12.3"
+  "engines": {
+    "node": "^22.19.0 || ^24.11.0 || >=26.0.0"
+  },
+  "packageManager": "pnpm@11.25.0"
 }

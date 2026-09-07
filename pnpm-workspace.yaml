@@ -1,0 +1,15 @@
+allowBuilds:
+  '@prisma/client': false
+  '@prisma/engines': false
+  better-sqlite3: false
+  esbuild: true
+  prisma: false
+  unrs-resolver: true
+  vue-demi: true
+  workerd: true
+minimumReleaseAgeExclude:
+  - '@libsql/client@0.18.0'
+  - '@libsql/core@0.18.0'
+  - vue-router@5.3.1
+  - '@iconify-json/lucide@1.2.129'
+  - '@nuxtjs/better-auth@0.3.1'
