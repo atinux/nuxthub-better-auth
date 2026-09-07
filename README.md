@@ -49,15 +49,10 @@ Use separate database environments for development, previews, and production.
 Apply schema migrations before each deployment. Neither deployment path requires
 the optional demo accounts.
 
-For databases created by this PR with Better Auth 1.7.0–1.7.2, back up the database
-and apply migration `0001_powerful_shiver_man` when deploying this version. It
-removes the obsolete `account.issuer` column and index while preserving accounts
-and sessions. Older builds require that column, so a rollback also needs the old
-schema restored. See the [Better Auth upgrade guide](https://www.better-auth.com/docs/guides/1-7-upgrade-guide#account-identity-keeps-the-provider-key).
-
-The module is pinned to the preview build from
-[nuxt-modules/better-auth#460](https://github.com/nuxt-modules/better-auth/pull/460),
-which aligns its schema generator with Better Auth 1.7.3.
+The template uses Nuxt Better Auth 0.3.1 and a single initial migration for
+Better Auth 1.7.3. Databases from earlier PR previews that still have
+`account.issuer` need the [Better Auth upgrade steps](https://www.better-auth.com/docs/guides/1-7-upgrade-guide#account-identity-keeps-the-provider-key)
+before updating; the initial migration does not upgrade existing tables.
 
 ### Cloudflare Workers with D1
 
@@ -186,5 +181,5 @@ pnpm test
 pnpm build:node
 ```
 
-CI runs these checks without cloud credentials. The auth test migrates an
-in-memory SQLite database, then verifies existing logins and new signups.
+CI runs these checks without cloud credentials. The auth test applies the initial
+migration to an in-memory SQLite database, then verifies signup, login, and sessions.

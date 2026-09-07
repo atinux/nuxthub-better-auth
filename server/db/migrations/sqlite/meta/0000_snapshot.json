@@ -14,13 +14,6 @@
           "notNull": true,
           "autoincrement": false
         },
-        "issuer": {
-          "name": "issuer",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
         "accountId": {
           "name": "accountId",
           "type": "text",
@@ -108,14 +101,6 @@
         }
       },
       "indexes": {
-        "account_issuer_accountId_uidx": {
-          "name": "account_issuer_accountId_uidx",
-          "columns": [
-            "issuer",
-            "accountId"
-          ],
-          "isUnique": true
-        },
         "account_userId_idx": {
           "name": "account_userId_idx",
           "columns": [
