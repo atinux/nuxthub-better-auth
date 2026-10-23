@@ -39,8 +39,15 @@ async function onSignOut() {
 <template>
   <UApp>
     <NuxtRouteAnnouncer />
-    <NuxtLoadingIndicator />
-    <UHeader title="Nuxt Better Auth">
+    <NuxtLoadingIndicator color="var(--ui-primary)" />
+    <UHeader>
+      <template #title>
+        <span class="flex items-baseline gap-2">
+          <img src="/logo-green-black.svg" alt="Nuxt" class="h-6 w-auto dark:hidden">
+          <img src="/logo-green-white.svg" alt="Nuxt" class="hidden h-6 w-auto dark:block">
+          <span class="font-heading font-medium text-highlighted">Better Auth</span>
+        </span>
+      </template>
       <UNavigationMenu :items="headerLinks" class="hidden md:flex" />
       <template #right>
         <UColorModeButton />
@@ -55,23 +62,20 @@ async function onSignOut() {
         <UButton
           v-if="loggedIn"
           color="neutral"
+          variant="subtle"
           :loading="signOutStatus === 'pending'"
           @click="onSignOut"
         >
-          Sign out
+          Sign Out
         </UButton>
       </template>
       <template #body>
         <UNavigationMenu :items="headerLinks" orientation="vertical" />
       </template>
     </UHeader>
-    <div class="flow-root bg-gradient-to-b from-primary-50/80 via-transparent to-transparent dark:from-primary-950/30">
-      <UContainer>
-        <UMain class="min-h-[calc(100svh-150px)]">
-          <NuxtPage />
-        </UMain>
-      </UContainer>
-    </div>
+    <UMain>
+      <NuxtPage />
+    </UMain>
     <UFooter class="border-t border-default">
       <template #left>
         <span class="text-sm text-muted">Built with Nuxt, Better Auth, and NuxtHub.</span>

@@ -7,6 +7,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
 
+  colorMode: {
+    preference: 'dark',
+  },
+
   runtimeConfig: {
     githubClientId: '',
     githubClientSecret: '',
